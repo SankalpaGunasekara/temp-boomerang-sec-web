@@ -1,3 +1,5 @@
+--- START OF FILE contact.html ---
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,7 +26,7 @@
       overflow: hidden; /* Prevent overflow */
       width: 100%; /* Ensure full width */
     }
-    
+
     .page-hero-content {
       position: relative;
       z-index: 1;
@@ -33,19 +35,19 @@
       width: 100%; /* Ensure proper scaling */
       padding: 0 var(--spacing-md); /* Add padding for small screens */
     }
-    
+
     .page-hero h1 {
       font-size: clamp(2rem, 5vw, 3rem); /* Responsive font size */
       margin-bottom: var(--spacing-md);
       line-height: 1.2;
     }
-    
+
     .page-hero p {
       font-size: clamp(1rem, 3vw, 1.25rem); /* Responsive font size */
       opacity: 0.9;
       line-height: 1.6;
     }
-    
+
     .contact-cards {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -53,7 +55,7 @@
       margin-bottom: var(--spacing-2xl);
       width: 100%; /* Ensure full width */
     }
-    
+
     .contact-card {
       background-color: var(--background);
       border-radius: var(--border-radius-lg);
@@ -63,12 +65,12 @@
       transition: transform var(--transition-normal), box-shadow var(--transition-normal);
       width: 100%; /* Ensure proper scaling */
     }
-    
+
     .contact-card:hover {
       transform: translateY(-5px);
       box-shadow: var(--shadow-lg);
     }
-    
+
     .contact-icon {
       width: 60px;
       height: 60px;
@@ -80,71 +82,71 @@
       margin: 0 auto var(--spacing-md);
       flex-shrink: 0; /* Prevent icon from shrinking */
     }
-    
+
     .contact-icon i {
       font-size: 1.5rem;
       color: var(--primary);
     }
-    
+
     .contact-card h3 {
       font-size: 1.25rem;
       margin-bottom: var(--spacing-sm);
     }
-    
+
     .contact-card p {
       color: var(--text-light);
       margin-bottom: var(--spacing-sm);
     }
-    
+
     .contact-card a {
       font-weight: 600;
       color: var(--primary);
       transition: color var(--transition-fast);
       word-break: break-word; /* Prevent overflow of long emails/URLs */
     }
-    
+
     .contact-card a:hover {
       color: var(--primary-light);
     }
-    
+
     .contact-form-section {
       padding: var(--spacing-3xl) 0;
       background-color: var(--background-alt);
       width: 100%;
       overflow: hidden; /* Prevent overflow */
     }
-    
+
     .contact-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: var(--spacing-2xl);
       width: 100%; /* Ensure full width */
     }
-    
+
     .form-container,
     .location-container {
       width: 100%; /* Ensure proper scaling */
     }
-    
+
     .contact-form {
       display: flex;
       flex-direction: column;
       gap: var(--spacing-md);
       width: 100%; /* Ensure proper scaling */
     }
-    
+
     .form-group {
       display: flex;
       flex-direction: column;
       gap: var(--spacing-xs);
       width: 100%; /* Ensure proper scaling */
     }
-    
+
     .form-group label {
       font-weight: 500;
       font-size: 0.875rem;
     }
-    
+
     .form-input {
       padding: 0.75rem 1rem;
       border: 1px solid var(--border);
@@ -152,25 +154,25 @@
       transition: border-color var(--transition-fast);
       width: 100%; /* Ensure proper scaling */
     }
-    
+
     .form-input:focus {
       outline: none;
       border-color: var(--primary);
       box-shadow: 0 0 0 2px rgba(26, 54, 93, 0.1);
     }
-    
+
     .form-row {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: var(--spacing-md);
       width: 100%; /* Ensure proper scaling */
     }
-    
+
     .form-textarea {
       min-height: 150px;
       resize: vertical;
     }
-    
+
     .map-container {
       height: 400px;
       border-radius: var(--border-radius-lg);
@@ -179,48 +181,57 @@
       margin-bottom: var(--spacing-lg);
       width: 100%; /* Ensure proper scaling */
     }
-    
-    .map-container img {
+
+    /* === ADDED RULE FOR IFRAME === */
+    .map-container iframe {
+        width: 100%;
+        height: 100%; /* Make it fill the container height */
+        display: block; /* Ensure block behavior */
+        border: 0; /* Keep border reset */
+    }
+    /* === END OF ADDED RULE === */
+
+    .map-container img { /* Keep this for potential fallback images */
       width: 100%;
       height: 100%;
       object-fit: cover;
     }
-    
+
     .location-info {
       display: flex;
       flex-direction: column;
       gap: var(--spacing-md);
     }
-    
+
     .location-item {
       display: flex;
       align-items: flex-start;
       gap: var(--spacing-md);
     }
-    
+
     .location-icon {
       color: var(--primary);
       font-size: 1.25rem;
       flex-shrink: 0;
       margin-top: var(--spacing-xs);
     }
-    
+
     .location-content h4 {
       font-size: 1.125rem;
       margin-bottom: var(--spacing-xs);
       word-wrap: break-word; /* Allow long words to break */
     }
-    
+
     .location-content p {
       word-wrap: break-word; /* Allow long words to break */
     }
-    
+
     .emergency-section {
       padding: var(--spacing-2xl) 0;
       width: 100%;
       overflow: hidden; /* Prevent overflow */
     }
-    
+
     .emergency-card {
       background-color: var(--primary);
       color: var(--text-white);
@@ -232,74 +243,74 @@
       align-items: center;
       width: 100%; /* Ensure proper scaling */
     }
-    
+
     .emergency-info h2 {
       font-size: clamp(1.5rem, 4vw, 2rem); /* Responsive font size */
       margin-bottom: var(--spacing-md);
       line-height: 1.2;
     }
-    
+
     .emergency-info p {
       font-size: clamp(1rem, 2vw, 1.125rem); /* Responsive font size */
       margin-bottom: var(--spacing-lg);
       opacity: 0.9;
       line-height: 1.6;
     }
-    
+
     .emergency-phone {
       display: flex;
       align-items: center;
       font-size: clamp(1.25rem, 3vw, 1.5rem); /* Responsive font size */
       font-weight: 700;
     }
-    
+
     .emergency-phone i {
       margin-right: var(--spacing-md);
       font-size: clamp(1.5rem, 3vw, 1.75rem); /* Responsive font size */
       flex-shrink: 0; /* Prevent icon from shrinking */
     }
-    
+
     .emergency-services {
       background-color: rgba(255, 255, 255, 0.1);
       border-radius: var(--border-radius-lg);
       padding: var(--spacing-lg);
     }
-    
+
     .emergency-services h3 {
       font-size: 1.25rem;
       margin-bottom: var(--spacing-md);
     }
-    
+
     .emergency-services ul {
       display: flex;
       flex-direction: column;
       gap: var(--spacing-sm);
     }
-    
+
     .emergency-services li {
       display: flex;
       align-items: flex-start;
     }
-    
+
     .emergency-services li span:first-child {
       color: var(--text-white);
       margin-right: var(--spacing-sm);
       flex-shrink: 0; /* Prevent icon from shrinking */
     }
-    
+
     .faq-section {
       padding: var(--spacing-3xl) 0;
       background-color: var(--background-alt);
       width: 100%;
       overflow: hidden; /* Prevent overflow */
     }
-    
+
     .faq-container {
       max-width: 800px;
       margin: 0 auto;
       width: 100%; /* Ensure proper scaling */
     }
-    
+
     .faq-item {
       background-color: var(--background);
       border-radius: var(--border-radius-lg);
@@ -308,19 +319,19 @@
       box-shadow: var(--shadow-sm);
       width: 100%; /* Ensure proper scaling */
     }
-    
+
     .faq-question {
       font-size: 1.25rem;
       font-weight: 600;
       margin-bottom: var(--spacing-sm);
       word-wrap: break-word; /* Allow long words to break */
     }
-    
+
     .faq-answer {
       color: var(--text-light);
       word-wrap: break-word; /* Allow long words to break */
     }
-    
+
     /* Success message styling */
     .success-message {
       background-color: rgba(26, 54, 93, 0.1);
@@ -328,31 +339,31 @@
       padding: var(--spacing-xl);
       text-align: center;
     }
-    
+
     .success-message h3 {
       font-size: 1.5rem;
       margin-bottom: var(--spacing-sm);
     }
-    
+
     .success-message p {
       margin-bottom: var(--spacing-lg);
     }
-    
+
     @media (max-width: 768px) {
       .contact-grid {
         grid-template-columns: 1fr;
         gap: var(--spacing-xl);
       }
-      
+
       .form-row {
         grid-template-columns: 1fr;
       }
-      
+
       .emergency-card {
         grid-template-columns: 1fr;
         gap: var(--spacing-lg);
       }
-      
+
       .page-hero {
         min-height: 300px;
         margin-top: 70px; /* Adjust for smaller header */
@@ -364,36 +375,36 @@
       width: 100%;
       overflow: hidden; /* Prevent overflow */
     }
-    
+
     .service-section:nth-child(even) {
       background-color: var(--background-alt);
     }
-    
+
     @media (max-width: 480px) {
       .page-hero {
         margin-top: 70px; /* Adjust for smaller header */
       }
-      
+
       .contact-form-section {
         padding: var(--spacing-xl) 0;
       }
-      
+
       .contact-form button {
         width: 100%; /* Full width buttons on small screens */
       }
-      
+
       .emergency-section {
         padding: var(--spacing-xl) 0;
       }
-      
+
       .emergency-card {
         padding: var(--spacing-lg);
       }
-      
+
       .faq-section {
         padding: var(--spacing-xl) 0;
       }
-      
+
       .faq-item {
         padding: var(--spacing-md);
       }
@@ -491,7 +502,7 @@
           <p>Available 24/7 for emergencies</p>
           <a href="tel:1-800-SECURE">1-800-SECURE</a>
         </div>
-        
+
         <div class="contact-card reveal-up" data-delay="200">
           <div class="contact-icon">
             <i class="fa-solid fa-envelope"></i>
@@ -500,7 +511,7 @@
           <p>For inquiries and quotes</p>
           <a href="mailto:info@secureguard.com">info@secureguard.com</a>
         </div>
-        
+
         <div class="contact-card reveal-up" data-delay="300">
           <div class="contact-icon">
             <i class="fa-solid fa-location-dot"></i>
@@ -517,36 +528,36 @@
   </section>
 
   <!-- Contact Form and Map -->
-  <section class="contact-form-section">
+  <section class="contact-form-section ">
     <div class="container">
       <div class="contact-grid">
         <div class="form-container reveal-left">
           <h2 style="padding-bottom: 10px;">Get in Touch</h2>
           <p>Fill out the form below and one of our security experts will contact you shortly to discuss your security needs.</p>
-          
+
           <form class="contact-form" id="contact-form">
             <div class="form-row">
               <div class="form-group">
                 <label for="firstName">First Name</label>
                 <input type="text" id="firstName" class="form-input" placeholder="John" required>
               </div>
-              
+
               <div class="form-group">
                 <label for="lastName">Last Name</label>
                 <input type="text" id="lastName" class="form-input" placeholder="Smith" required>
               </div>
             </div>
-            
+
             <div class="form-group">
               <label for="email">Email</label>
               <input type="email" id="email" class="form-input" placeholder="john.smith@example.com" required>
             </div>
-            
+
             <div class="form-group">
               <label for="phone">Phone</label>
               <input type="tel" id="phone" class="form-input" placeholder="(123) 456-7890" required>
             </div>
-            
+
             <div class="form-group">
               <label for="service">Service Interested In</label>
               <select id="service" class="form-input">
@@ -560,21 +571,23 @@
                 <option value="other">Other</option>
               </select>
             </div>
-            
+
             <div class="form-group">
               <label for="message">Message</label>
               <textarea id="message" class="form-input form-textarea" placeholder="Tell us about your security needs..." required></textarea>
             </div>
-            
+
             <button type="submit" class="btn primary-btn" id="submit-btn">Send Message</button>
           </form>
         </div>
-        
+
         <div class="location-container reveal-right">
           <h2 style="padding-bottom: 10px;">Our Location</h2>
-          
+
           <div class="map-container">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.8225278327745!2d79.86477747571435!3d6.911812218527609!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae25970e0300001%3A0xafcb7f398a249b1!2sBoomerang%20(Pvt)%20Ltd!5e0!3m2!1sen!2slk!4v1743259041991!5m2!1sen!2slk" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>          </div>          
+            <!-- The iframe itself no longer needs width/height attributes or style="border:0;" -->
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.8225278327745!2d79.86477747571435!3d6.911812218527609!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae25970e0300001%3A0xafcb7f398a249b1!2sBoomerang%20(Pvt)%20Ltd!5e0!3m2!1sen!2slk!4v1743259041991!5m2!1sen!2slk" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
           <div class="location-info">
             <div class="location-item">
               <div class="location-icon">
@@ -587,7 +600,7 @@
                 </p>
               </div>
             </div>
-            
+
             <div class="location-item">
               <div class="location-icon">
                 <i class="fa-solid fa-clock"></i>
@@ -620,7 +633,7 @@
             <span>1-800-SECURE</span>
           </div>
         </div>
-        
+
         <div class="emergency-services reveal-right">
           <h3>Emergency Services Include:</h3>
           <ul>
@@ -653,23 +666,23 @@
         <h2>Frequently Asked Questions</h2>
         <p>Find answers to common questions about our security services.</p>
       </div>
-      
+
       <div class="faq-container">
         <div class="faq-item reveal-up" data-delay="100">
           <h3 class="faq-question">How quickly can you respond to a security emergency?</h3>
           <p class="faq-answer">Our average response time is under 15 minutes for most locations. For clients with on-site security personnel, response is immediate. We also maintain a 24/7 monitoring center for rapid dispatch of security teams.</p>
         </div>
-        
+
         <div class="faq-item reveal-up" data-delay="200">
           <h3 class="faq-question">Are your security guards armed or unarmed?</h3>
           <p class="faq-answer">We offer both armed and unarmed security services depending on your specific needs and risk assessment. All our armed guards are properly licensed, certified, and undergo rigorous training.</p>
         </div>
-        
+
         <div class="faq-item reveal-up" data-delay="300">
           <h3 class="faq-question">How are your security personnel trained?</h3>
           <p class="faq-answer">All our security personnel undergo comprehensive training that exceeds industry standards. This includes security protocols, emergency response, conflict resolution, first aid, and customer service. Armed guards receive additional specialized training.</p>
         </div>
-        
+
         <div class="faq-item reveal-up" data-delay="400">
           <h3 class="faq-question">Can you provide security for a one-time event?</h3>
           <p class="faq-answer">Yes, we offer event security services for one-time events of all sizes. Our team will work with you to develop a comprehensive security plan tailored to your specific event needs.</p>
@@ -730,7 +743,7 @@
         </div>
       </div>
       <div class="footer-bottom">
-        <p>&copy; <span id="current-year">2023</span> SecureGuard Inc. All rights reserved. Licensed and Insured.</p>
+        <p>© <span id="current-year">2023</span> SecureGuard Inc. All rights reserved. Licensed and Insured.</p>
         <div class="footer-certifications">
           <img src="https://placehold.co/40x40/1a365d/FFFFFF?text=Cert" alt="Security Certification">
           <img src="https://placehold.co/40x40/1a365d/FFFFFF?text=Cert" alt="Security Certification">
@@ -746,15 +759,15 @@
     document.addEventListener('DOMContentLoaded', function() {
       const contactForm = document.getElementById('contact-form');
       const submitBtn = document.getElementById('submit-btn');
-      
+
       if (contactForm) {
         contactForm.addEventListener('submit', function(e) {
           e.preventDefault();
-          
+
           // Show loading state
           submitBtn.textContent = 'Sending...';
           submitBtn.disabled = true;
-          
+
           // Simulate form submission
           setTimeout(function() {
             // Create success message
@@ -766,11 +779,11 @@
               <p>Your message has been received. One of our security experts will contact you shortly.</p>
               <button class="btn primary-btn" id="send-another">Send Another Message</button>
             `;
-            
+
             // Replace form with success message
             formContainer.innerHTML = '';
             formContainer.appendChild(successMessage);
-            
+
             // Add event listener to "Send Another Message" button
             document.getElementById('send-another').addEventListener('click', function() {
               window.location.reload();
@@ -782,3 +795,4 @@
   </script>
 </body>
 </html>
+--- END OF FILE contact.html ---
