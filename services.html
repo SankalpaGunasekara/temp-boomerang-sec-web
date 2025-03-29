@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Services - SecureGuard</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Sora:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    /* Additional styles specific to services page */
+    .page-hero {
+      position: relative;
+      height: 60vh;
+      min-height: 400px;
+      background-image: url('https://placehold.co/1920x1080/1a365d/FFFFFF?text=Security+Services');
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      align-items: center;
+      margin-top: 80px;
+      overflow: hidden; /* Prevent overflow */
+      width: 100%; /* Ensure full width */
+    }
+    
+    .page-hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 650px;
+      color: var(--text-white);
+      width: 100%; /* Ensure proper scaling */
+      padding: 0 var(--spacing-md); /* Add padding for small screens */
+    }
+    
+    .page-hero h1 {
+      font-size: clamp(2rem, 5vw, 3rem); /* Responsive font size */
+      margin-bottom: var(--spacing-md);
+      line-height: 1.2;
+    }
+    
+    .page-hero p {
+      font-size: clamp(1rem, 3vw, 1.25rem); /* Responsive font size */
+      opacity: 0.9;
+      line-height: 1.6;
+    }
+    
+    .service-section {
+      padding: var(--spacing-3xl) 0;
+      width: 100%;
+      overflow: hidden; /* Prevent overflow */
+    }
+    
+    .service-section:nth-child(even) {
+      background-color: var(--background-alt);
+    }
+    
+    .service-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--spacing-2xl);
+      align-items: center;
+      width: 100%; /* Ensure full width */
+    }
+    
+    .service-content {
+      width: 100%; /* Ensure proper scaling */
+    }
+    
+    .service-content h2 {
+      font-size: clamp(1.75rem, 4vw, 2.5rem); /* Responsive font size */
+      margin-bottom: var(--spacing-md);
+      color: var(--primary);
+      line-height: 1.2;
+    }
+    
+    .service-content p {
+      margin-bottom: var(--spacing-lg);
+      color: var(--text-light);
+      font-size: clamp(1rem, 2vw, 1.125rem); /* Responsive font size */
+      line-height: 1.6;
+    }
+    
+    .service-icon {
+      width: 60px;
+      height: 60px;
+      border-radius: var(--border-radius-full);
+      background-color: rgba(26, 54, 93, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: var(--spacing-md);
+      flex-shrink: 0; /* Prevent icon from shrinking */
+    }
+    
+    .service-icon i {
+      font-size: 1.5rem;
+      color: var(--primary);
+    }
+    
+    .service-benefits {
+      margin-bottom: var(--spacing-xl);
+    }
+    
+    .service-benefits h3 {
+      font-size: 1.25rem;
+      margin-bottom: var(--spacing-md);
+    }
+    
+    .benefits-list {
+      display: flex;
+      flex-direction: column;
+      gap: var(--spacing-sm);
+    }
+    
+    .benefit-item {
+      display: flex;
+      align-items: flex-start;
+    }
+    
+    .benefit-item span:first-child {
+      color: var(--primary);
+      margin-right: var(--spacing-sm);
+      flex-shrink: 0; /* Prevent icon from shrinking */
+    }
+    
+    .service-image {
+      width: 100%; /* Ensure proper scaling */
+    }
+    
+    .service-image img {
+      width: 100%;
+      height: auto;
+      border-radius: var(--border-radius-lg);
+      box-shadow: var(--shadow-lg);
+      transition: transform var(--transition-normal);
+      max-width: 100%; /* Prevent overflow */
+    }
+    
+    .service-image img:hover {
+      transform: scale(1.02);
+    }
+    
+    /* Fix for alternating layout */
+    @media (min-width: 769px) {
+      .service-grid.reverse {
+        grid-template-areas: "image content";
+      }
+      
+      .service-grid.reverse .service-content {
+        grid-area: content;
+      }
+      
+      .service-grid.reverse .service-image {
+        grid-area: image;
+      }
+      
+      .service-grid:not(.reverse) {
+        grid-template-areas: "content image";
+      }
+      
+      .service-grid:not(.reverse) .service-content {
+        grid-area: content;
+      }
+      
+      .service-grid:not(.reverse) .service-image {
+        grid-area: image;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .service-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-xl);
+      }
+      
+      .service-image {
+        margin-bottom: var(--spacing-lg);
+      }
+      
+      /* Stack content and image for mobile */
+      .service-grid, 
+      .service-grid.reverse {
+        grid-template-areas:
+          "image"
+          "content";
+      }
+      
+      .service-grid .service-image,
+      .service-grid.reverse .service-image {
+        grid-area: image;
+      }
+      
+      .service-grid .service-content,
+      .service-grid.reverse .service-content {
+        grid-area: content;
+      }
+      
+      .page-hero {
+        min-height: 300px;
+        margin-top: 70px; /* Adjust for smaller header */
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .page-hero {
+        min-height: 300px;
+        margin-top: 70px; /* Adjust for smaller header */
+      }
+      
+      .service-section {
+        padding: var(--spacing-xl) 0;
+      }
+      
+      .service-content button {
+        width: 100%; /* Full width buttons on small screens */
+      }
+      
+      .cta-buttons {
+        flex-direction: column;
+        width: 100%;
+      }
+      
+      .cta-buttons .btn {
+        width: 100%;
+        margin-bottom: var(--spacing-sm);
+      }
+      
+      .text-center {
+        text-align: center;
+      }
+      
+      .centered {
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="container">
+      <div class="logo">
+        <a href="index.html">
+          <i class="fa-solid fa-shield-halved"></i>
+          <span>SecureGuard</span>
+        </a>
+      </div>
+      <nav class="main-nav">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="services.html" class="active">Services</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="client-portal.html" class="highlight">Client Portal</a></li>
+        </ul>
+      </nav>
+      <div class="header-actions">
+        <a href="tel:1-800-SECURE" class="phone-btn">
+          <i class="fa-solid fa-phone"></i>
+          <span>1-800-SECURE</span>
+        </a>
+        <a href="contact.html" class="btn primary-btn">Request a Quote</a>
+      </div>
+      <button class="mobile-menu-btn" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu">
+    <div class="mobile-menu-header">
+      <div class="logo">
+        <a href="index.html">
+          <i class="fa-solid fa-shield-halved"></i>
+          <span>SecureGuard</span>
+        </a>
+      </div>
+      <button class="mobile-menu-close" aria-label="Close menu">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+    <nav class="mobile-nav">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html" class="active">Services</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="client-portal.html" class="highlight">Client Portal</a></li>
+      </ul>
+    </nav>
+    <div class="mobile-actions">
+      <a href="tel:1-800-SECURE" class="phone-btn full-width">
+        <i class="fa-solid fa-phone"></i>
+        <span>1-800-SECURE</span>
+      </a>
+      <a href="contact.html" class="btn primary-btn full-width">Request a Quote</a>
+    </div>
+  </div>
+
+  <!-- Services Hero -->
+  <section class="page-hero">
+    <div class="hero-overlay"></div>
+    <div class="container">
+      <div class="page-hero-content reveal-left">
+        <h1>Comprehensive Security Services</h1>
+        <p>Professional security solutions tailored to your specific needs, delivered by trained experts using advanced technology.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Overview -->
+  <section class="section service-section">
+    <div class="container">
+      <div class="section-header reveal-up">
+        <h2>Our Security Services</h2>
+        <p>At SecureGuard, we offer a comprehensive range of security services designed to protect your people, property, and assets. Each service is customized to meet your specific security needs and requirements.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Armed Guards -->
+  <section id="armed-guards" class="service-section">
+    <div class="container">
+      <div class="service-grid">
+        <div class="service-content reveal-left">
+          <div class="service-icon">
+            <i class="fa-solid fa-shield-halved"></i>
+          </div>
+          <h2>Armed Security Guards</h2>
+          <p>Our armed security guards are highly trained professionals with extensive experience in law enforcement or military backgrounds. They provide an enhanced level of security for high-risk environments and valuable assets.</p>
+          
+          <div class="service-benefits">
+            <h3>Key Benefits:</h3>
+            <ul class="benefits-list">
+              <li class="benefit-item">
+                <span>•</span>
+                <span>Trained in advanced threat assessment and response</span>
+              </li>
+              <li class="benefit-item">
+                <span>•</span>
+                <span>Licensed and certified to carry firearms</span>
+              </li>
+              <li class="benefit-item">
+                <span>•</span>
+                <span>Deterrent presence for high-value targets</span>
+              </li>
+              <li class="benefit-item">
+                <span>•</span>
+                <span>Immediate response to security threats</span>
+              </li>
+            </ul>
+          </div>
+          
+          <a href="contact.html" class="btn primary-btn">Request Armed Security</a>
+        </div>
+        <div class="service-image reveal-right">
+          <img src="https://placehold.co/600x500/1a365d/FFFFFF?text=Armed+Security" alt="Armed security guard">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Unarmed Guards -->
+  <section id="unarmed-guards" class="service-section">
+    <div class="container">
+      <div class="service-grid reverse">
+        <div class="service-content reveal-right">
+          <div class="service-icon">
+            <i class="fa-solid fa-users"></i>
+          </div>
+          <h2>Unarmed Security Guards</h2>
+          <p>Our unarmed security guards provide professional security services for environments where an armed presence is not necessary. They are trained in security protocols, customer service, and emergency response procedures.</p>
+          
+          <div class="service-benefits">
+            <h3>Key Benefits:</h3>
+            <ul class="benefits-list">
+              <li class="benefit-item">
+                <span>•</span>
+                <span>Cost-effective security solution</span>
+              </li>
+              <li class="benefit-item">
+                <span>•</span>
+                <span>Professional appearance and demeanor</span>
+              </li>
+              <li class="benefit-item">
+                <span>•</span>
+                <span>Trained in conflict resolution and de-escalation</span>
+              </li>
+              <li class="benefit-item">
+                <span>•</span>
+                <span>Excellent customer service skills</span>
+              </li>
+            </ul>
+          </div>
+          
+          <a href="contact.html" class="btn primary-btn">Request Unarmed Security</a>
+        </div>
+        <div class="service-image reveal-left">
+          <img src="https://placehold.co/600x500/1a365d/FFFFFF?text=Unarmed+Security" alt="Unarmed security guard">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Access Control -->
+  <section id="access-control" class="service-section">
+    <div class="container">
+      <div class="service-grid">
+        <div class="service-content reveal-left">
+          <div class="service-icon">
+            <i class="fa-solid fa-lock"></i>
+          </div>
+          <h2>Access Control Systems</h2>
+          <p>Our access control systems provide comprehensive security by controlling who can enter your facility and when. We offer a range of solutions from basic keycard systems to advanced biometric identification.</p>
+          
+          <div class="service-benefits">
+            <h3>Key Benefits:</h3>
+            <ul class="benefits-list">
+              <li class="benefit-item">
+                <span>•</span>
+                <span>Restrict access to authorized personnel only</span>
+              </li>
+              <li class="benefit-item">
+                <span>•</span>
+                <span>Track and monitor entry and exit activity</span>
+              </li>
+              <li class="benefit-item">
+                <span>•</span>
+                <span>Integrate with existing security systems</span>
+              </li>
+              <li class="benefit-item">
+                <span>•</span>
+                <span>Customizable access levels for different areas</span>
+              </li>
+            </ul>
+          </div>
+          
+          <a href="contact.html" class="btn primary-btn">Request Access Control</a>
+        </div>
+        <div class="service-image reveal-right">
+          <img src="https://placehold.co/600x500/1a365d/FFFFFF?text=Access+Control" alt="Access control system">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Patrol Services -->
+  <section id="patrol-services" class="service-section">
+    <div class="container">
+      <div class="service-grid reverse">
+        <div class="service-content reveal-right">
+          <div class="service-icon">
+            <i class="fa-solid fa-clock"></i>
+          </div>
+          <h2>Patrol Services</h2>
+          <p>Our patrol services provide regular security checks throughout your property to deter criminal activity and ensure comprehensive coverage. Patrols can be scheduled at regular intervals or random times for maximum effectiveness.</p>
+          
+          <div class="service-benefits">
+            <h3>Key Benefits:</h3>
+            <ul class="benefits-list">
+              <li class="benefit-item">
+                <span>•</span>
+                <span>Visible security presence to deter criminal activity</span>
+              </li>
+              <li class="benefit-item">
+                <span>•</span>
+                <span>Regular checks of all entry points and vulnerable areas</span>
+              </li>
+              <li class="benefit-item">
+                <span>•</span>
+                <span>Immediate response to security incidents</span>
+              </li>
+              <li class="benefit-item">
+                <span>•</span>
+                <span>Detailed reporting of patrol activities and incidents</span>
+              </li>
+            </ul>
+          </div>
+          
+          <a href="contact.html" class="btn primary-btn">Request Patrol Services</a>
+        </div>
+        <div class="service-image reveal-left">
+          <img src="https://placehold.co/600x500/1a365d/FFFFFF?text=Patrol+Services" alt="Security patrol">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Event Security -->
+  <section id="event-security" class="service-section">
+    <div class="container">
+      <div class="service-grid">
+        <div class="service-content reveal-left">
+          <div class="service-icon">
+            <i class="fa-solid fa-users-gear"></i>
+          </div>
+          <h2>Event Security</h2>
+          <p>Our event security teams provide comprehensive protection for events of all sizes, from small corporate gatherings to large public events. We ensure the safety of attendees while maintaining a positive atmosphere.</p>
+          
+          <div class="service-benefits">
+            <h3>Key Benefits:</h3>
+            <ul class="benefits-list">
+              <li class="benefit-item">
+                <span>•</span>
+                <span>Crowd management and control</span>
+              </li>
+              <li class="benefit-item">
+                <span>•</span>
+                <span>Access control and ticket verification</span>
+              </li>
+              <li class="benefit-item">
+                <span>•</span>
+                <span>VIP protection and escort services</span>
+              </li>
+              <li class="benefit-item">
+                <span>•</span>
+                <span>Emergency response planning and coordination</span>
+              </li>
+            </ul>
+          </div>
+          
+          <a href="contact.html" class="btn primary-btn">Request Event Security</a>
+        </div>
+        <div class="service-image reveal-right">
+          <img src="https://placehold.co/600x500/1a365d/FFFFFF?text=Event+Security" alt="Event security">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Executive Protection -->
+  <section id="executive-protection" class="service-section">
+    <div class="container">
+      <div class="service-grid reverse">
+        <div class="service-content reveal-right">
+          <div class="service-icon">
+            <i class="fa-solid fa-briefcase"></i>
+          </div>
+          <h2>Executive Protection</h2>
+          <p>Our executive protection services provide personalized security for high-profile individuals, executives, and VIPs. Our protection specialists are trained in advanced security techniques and threat assessment.</p>
+          
+          <div class="service-benefits">
+            <h3>Key Benefits:</h3>
+            <ul class="benefits-list">
+              <li class="benefit-item">
+                <span>•</span>
+                <span>Discreet and professional protection</span>
+              </li>
+              <li class="benefit-item">
+                <span>•</span>
+                <span>Advance planning and route reconnaissance</span>
+              </li>
+              <li class="benefit-item">
+                <span>•</span>
+                <span>Threat assessment and risk management</span>
+              </li>
+              <li class="benefit-item">
+                <span>•</span>
+                <span>Travel security and logistics coordination</span>
+              </li>
+            </ul>
+          </div>
+          
+          <a href="contact.html" class="btn primary-btn">Request Executive Protection</a>
+        </div>
+        <div class="service-image reveal-left">
+          <img src="https://placehold.co/600x500/1a365d/FFFFFF?text=Executive+Protection" alt="Executive protection">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content text-center reveal-up">
+        <h2>Ready to Secure Your Property?</h2>
+        <p>Contact us today to discuss your security needs and receive a customized security plan tailored to your specific requirements.</p>
+        <div class="cta-buttons centered">
+          <a href="contact.html" class="btn secondary-btn">Request a Quote</a>
+          <a href="contact.html" class="btn outline-light-btn">Schedule a Consultation</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-about">
+          <div class="footer-logo">
+            <i class="fa-solid fa-shield-halved"></i>
+            <span>SecureGuard</span>
+          </div>
+          <p>Professional security solutions for businesses, events, and properties of all sizes.</p>
+          <div class="social-links">
+            <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#" aria-label="Twitter"><i class="fa-brands fa-twitter"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+          </div>
+        </div>
+        <div class="footer-links">
+          <h3>Services</h3>
+          <ul>
+            <li><a href="services.html#armed-guards">Armed Guards</a></li>
+            <li><a href="services.html#unarmed-guards">Unarmed Guards</a></li>
+            <li><a href="services.html#access-control">Access Control</a></li>
+            <li><a href="services.html#patrol-services">Patrol Services</a></li>
+            <li><a href="services.html#event-security">Event Security</a></li>
+            <li><a href="services.html#executive-protection">Executive Protection</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h3>Company</h3>
+          <ul>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="about.html#leadership">Leadership</a></li>
+            <li><a href="about.html#careers">Careers</a></li>
+            <li><a href="about.html#news">News & Press</a></li>
+            <li><a href="about.html#testimonials">Testimonials</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h3>Resources</h3>
+          <ul>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="security-tips.html">Security Tips</a></li>
+            <li><a href="client-portal.html">Client Portal</a></li>
+            <li><a href="faqs.html">FAQs</a></li>
+            <li><a href="privacy-policy.html">Privacy Policy</a></li>
+            <li><a href="terms-of-service.html">Terms of Service</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; <span id="current-year">2023</span> SecureGuard Inc. All rights reserved. Licensed and Insured.</p>
+        <div class="footer-certifications">
+          <img src="https://placehold.co/40x40/1a365d/FFFFFF?text=Cert" alt="Security Certification">
+          <img src="https://placehold.co/40x40/1a365d/FFFFFF?text=Cert" alt="Security Certification">
+          <img src="https://placehold.co/40x40/1a365d/FFFFFF?text=Cert" alt="Security Certification">
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
+

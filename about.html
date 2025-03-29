@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>About Us - SecureGuard</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Sora:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    /* Additional styles specific to about page */
+    .page-hero {
+      position: relative;
+      height: 60vh;
+      min-height: 400px;
+      background-image: url('https://placehold.co/1920x1080/1a365d/FFFFFF?text=Security+Team');
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      align-items: center;
+      margin-top: 80px;
+      overflow: hidden; /* Prevent overflow */
+      width: 100%; /* Ensure full width */
+    }
+    
+    .page-hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 650px;
+      color: var(--text-white);
+      width: 100%; /* Ensure proper scaling */
+      padding: 0 var(--spacing-md); /* Add padding for small screens */
+    }
+    
+    .page-hero h1 {
+      font-size: clamp(2rem, 5vw, 3rem); /* Responsive font size */
+      margin-bottom: var(--spacing-md);
+      line-height: 1.2;
+    }
+    
+    .page-hero p {
+      font-size: clamp(1rem, 3vw, 1.25rem); /* Responsive font size */
+      opacity: 0.9;
+      line-height: 1.6;
+    }
+    
+    .timeline {
+      position: relative;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: var(--spacing-xl) 0;
+      width: 100%; /* Ensure proper scaling */
+    }
+    
+    .timeline::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      width: 2px;
+      height: 100%;
+      background-color: var(--primary);
+      transform: translateX(-50%);
+    }
+    
+    .timeline-item {
+      position: relative;
+      margin-bottom: var(--spacing-2xl);
+      width: 100%; /* Ensure proper scaling */
+    }
+    
+    .timeline-item:nth-child(odd) {
+      padding-right: 50%;
+      text-align: right;
+    }
+    
+    .timeline-item:nth-child(even) {
+      padding-left: 50%;
+      text-align: left;
+    }
+    
+    .timeline-dot {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      width: 20px;
+      height: 20px;
+      background-color: var(--primary);
+      border-radius: 50%;
+      transform: translateX(-50%);
+      z-index: 1;
+    }
+    
+    .timeline-content {
+      background-color: var(--background);
+      border-radius: var(--border-radius-lg);
+      padding: var(--spacing-lg);
+      box-shadow: var(--shadow-md);
+      transition: transform var(--transition-normal);
+      width: 100%; /* Ensure proper scaling */
+      max-width: 90%; /* Prevent overflow */
+    }
+    
+    .timeline-item:nth-child(odd) .timeline-content {
+      margin-right: var(--spacing-xl);
+    }
+    
+    .timeline-item:nth-child(even) .timeline-content {
+      margin-left: var(--spacing-xl);
+    }
+    
+    .timeline-content:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-lg);
+    }
+    
+    .timeline-year {
+      display: inline-block;
+      background-color: var(--primary);
+      color: var(--text-white);
+      padding: 0.25rem 0.75rem;
+      border-radius: var(--border-radius-md);
+      font-weight: 600;
+      margin-bottom: var(--spacing-sm);
+    }
+    
+    .timeline-title {
+      font-size: 1.25rem;
+      margin-bottom: var(--spacing-sm);
+    }
+    
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: var(--spacing-xl);
+      width: 100%; /* Ensure proper scaling */
+    }
+    
+    .team-member {
+      text-align: center;
+      transition: transform var(--transition-normal);
+      width: 100%; /* Ensure proper scaling */
+    }
+    
+    .team-member:hover {
+      transform: translateY(-5px);
+    }
+    
+    .team-photo {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      margin: 0 auto var(--spacing-md);
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+    }
+    
+    .team-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform var(--transition-normal);
+    }
+    
+    .team-member:hover .team-photo img {
+      transform: scale(1.05);
+    }
+    
+    .team-name {
+      font-size: 1.25rem;
+      margin-bottom: var(--spacing-xs);
+    }
+    
+    .team-position {
+      color: var(--primary);
+      font-weight: 600;
+      margin-bottom: var(--spacing-sm);
+    }
+    
+    .team-bio {
+      color: var(--text-light);
+      margin-bottom: var(--spacing-md);
+    }
+    
+    .team-social {
+      display: flex;
+      justify-content: center;
+      gap: var(--spacing-sm);
+    }
+    
+    .team-social a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background-color: var(--primary);
+      color: var(--text-white);
+      transition: all var(--transition-fast);
+    }
+    
+    .team-social a:hover {
+      background-color: var(--primary-light);
+      transform: translateY(-3px);
+    }
+    
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: var(--spacing-xl);
+      width: 100%; /* Ensure proper scaling */
+    }
+    
+    .value-card {
+      background-color: var(--background);
+      border-radius: var(--border-radius-lg);
+      padding: var(--spacing-xl);
+      box-shadow: var(--shadow-md);
+      transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+      width: 100%; /* Ensure proper scaling */
+    }
+    
+    .value-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-lg);
+    }
+    
+    .value-icon {
+      width: 60px;
+      height: 60px;
+      border-radius: var(--border-radius-full);
+      background-color: rgba(26, 54, 93, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: var(--spacing-md);
+    }
+    
+    .value-icon i {
+      font-size: 1.5rem;
+      color: var(--primary);
+    }
+    
+    .value-title {
+      font-size: 1.25rem;
+      margin-bottom: var(--spacing-sm);
+    }
+
+    .service-section {
+      padding: var(--spacing-3xl) 0;
+      width: 100%;
+      overflow: hidden; /* Prevent overflow */
+    }
+    
+    .service-section:nth-child(even) {
+      background-color: var(--background-alt);
+    }
+    
+    
+    @media (max-width: 768px) {
+      .timeline::before {
+        left: 30px;
+      }
+      
+      .timeline-item:nth-child(odd),
+      .timeline-item:nth-child(even) {
+        padding-left: 80px;
+        padding-right: 0;
+        text-align: left;
+      }
+      
+      .timeline-dot {
+        left: 30px;
+      }
+      
+      .timeline-item:nth-child(odd) .timeline-content,
+      .timeline-item:nth-child(even) .timeline-content {
+        margin-left: 0;
+        margin-right: 0;
+        max-width: 100%;
+      }
+      
+      .page-hero {
+        min-height: 300px;
+        margin-top: 70px; /* Adjust for smaller header */
+      }
+      
+      .team-photo {
+        width: 150px;
+        height: 150px;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .timeline-content {
+        padding: var(--spacing-md);
+      }
+      
+      .cta-buttons {
+        flex-direction: column;
+        width: 100%;
+      }
+      
+      .cta-buttons .btn {
+        width: 100%;
+        margin-bottom: var(--spacing-sm);
+      }
+      
+      .text-center {
+        text-align: center;
+      }
+      
+      .centered {
+        justify-content: center;
+      }
+      .service-section {
+        padding: var(--spacing-xl) 0;
+      }
+      
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="container">
+      <div class="logo">
+        <a href="index.html">
+          <i class="fa-solid fa-shield-halved"></i>
+          <span>SecureGuard</span>
+        </a>
+      </div>
+      <nav class="main-nav">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="about.html" class="active">About Us</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="client-portal.html" class="highlight">Client Portal</a></li>
+        </ul>
+      </nav>
+      <div class="header-actions">
+        <a href="tel:1-800-SECURE" class="phone-btn">
+          <i class="fa-solid fa-phone"></i>
+          <span>1-800-SECURE</span>
+        </a>
+        <a href="contact.html" class="btn primary-btn">Request a Quote</a>
+      </div>
+      <button class="mobile-menu-btn" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu">
+    <div class="mobile-menu-header">
+      <div class="logo">
+        <a href="index.html">
+          <i class="fa-solid fa-shield-halved"></i>
+          <span>SecureGuard</span>
+        </a>
+      </div>
+      <button class="mobile-menu-close" aria-label="Close menu">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+    <nav class="mobile-nav">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="about.html" class="active">About Us</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="client-portal.html" class="highlight">Client Portal</a></li>
+      </ul>
+    </nav>
+    <div class="mobile-actions">
+      <a href="tel:1-800-SECURE" class="phone-btn full-width">
+        <i class="fa-solid fa-phone"></i>
+        <span>1-800-SECURE</span>
+      </a>
+      <a href="contact.html" class="btn primary-btn full-width">Request a Quote</a>
+    </div>
+  </div>
+
+  <!-- About Hero -->
+  <section class="page-hero">
+    <div class="hero-overlay"></div>
+    <div class="container">
+      <div class="page-hero-content reveal-left">
+        <h1>About SecureGuard</h1>
+        <p>A trusted security partner with over 25 years of experience protecting what matters most.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Company Overview -->
+  <section class="service-section">
+    <div class="container">
+      <div class="mission-grid">
+        <div class="mission-content reveal-left">
+          <h2>Our Story</h2>
+          <p>Founded in 1995, SecureGuard has grown from a small local security firm to one of the leading security providers in the nation. Our journey began with a simple mission: to provide exceptional security services that protect people, property, and assets.</p>
+          <p>Over the years, we have expanded our services and expertise, but our commitment to excellence and customer satisfaction has remained unwavering. Today, we serve clients across various industries, from corporate offices and retail establishments to residential communities and special events.</p>
+          <div class="mission-features">
+            <div class="feature">
+              <i class="fa-solid fa-award"></i>
+              <span>25+ Years Experience</span>
+            </div>
+            <div class="feature">
+              <i class="fa-solid fa-users"></i>
+              <span>500+ Security Professionals</span>
+            </div>
+            <div class="feature">
+              <i class="fa-solid fa-shield-halved"></i>
+              <span>Industry-Leading Training</span>
+            </div>
+            <div class="feature">
+              <i class="fa-solid fa-clock"></i>
+              <span>24/7 Operations Center</span>
+            </div>
+          </div>
+        </div>
+        <div class="mission-image reveal-right">
+          <img src="https://placehold.co/600x600/1a365d/FFFFFF?text=Company+History" alt="Company history">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Company Timeline -->
+  <section class="service-section bg-alt">
+    <div class="container">
+      <div class="section-header reveal-up">
+        <h2>Our Journey</h2>
+        <p>From our humble beginnings to becoming an industry leader, here's how we've grown over the years.</p>
+      </div>
+      
+      <div class="timeline">
+        <div class="timeline-item reveal-up">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <div class="timeline-year">1995</div>
+            <h3 class="timeline-title">Founded in Metropolis</h3>
+            <p>SecureGuard was established with just 5 security professionals serving local businesses.</p>
+          </div>
+        </div>
+        
+        <div class="timeline-item reveal-up" data-delay="100">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <div class="timeline-year">2000</div>
+            <h3 class="timeline-title">Regional Expansion</h3>
+            <p>Expanded operations to cover the entire state with over 50 security professionals.</p>
+          </div>
+        </div>
+        
+        <div class="timeline-item reveal-up" data-delay="200">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <div class="timeline-year">2008</div>
+            <h3 class="timeline-title">Technology Integration</h3>
+            <p>Introduced advanced security technology and monitoring systems to complement our human security services.</p>
+          </div>
+        </div>
+        
+        <div class="timeline-item reveal-up" data-delay="300">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <div class="timeline-year">2015</div>
+            <h3 class="timeline-title">National Recognition</h3>
+            <p>Recognized as one of the top security firms in the country with operations in 15 states.</p>
+          </div>
+        </div>
+        
+        <div class="timeline-item reveal-up" data-delay="400">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <div class="timeline-year">2023</div>
+            <h3 class="timeline-title">Today</h3>
+            <p>Over 500 security professionals serving clients nationwide with state-of-the-art security solutions.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Our Values -->
+  <section class="section service-section ">
+    <div class="container">
+      <div class="section-header reveal-up">
+        <h2>Our Values</h2>
+        <p>These core principles guide everything we do, from how we train our team to how we serve our clients.</p>
+      </div>
+      
+      <div class="values-grid">
+        <div class="value-card reveal-up" data-delay="100">
+          <div class="value-icon">
+            <i class="fa-solid fa-handshake"></i>
+          </div>
+          <h3 class="value-title">Integrity</h3>
+          <p>We conduct ourselves with honesty, transparency, and ethical behavior in all interactions.</p>
+        </div>
+        
+        <div class="value-card reveal-up" data-delay="200">
+          <div class="value-icon">
+            <i class="fa-solid fa-star"></i>
+          </div>
+          <h3 class="value-title">Excellence</h3>
+          <p>We strive for excellence in everything we do, from training our team to delivering our services.</p>
+        </div>
+        
+        <div class="value-card reveal-up" data-delay="300">
+          <div class="value-icon">
+            <i class="fa-solid fa-check-double"></i>
+          </div>
+          <h3 class="value-title">Reliability</h3>
+          <p>We are dependable and consistent in our service delivery, always there when our clients need us.</p>
+        </div>
+        
+        <div class="value-card reveal-up" data-delay="400">
+          <div class="value-icon">
+            <i class="fa-solid fa-users"></i>
+          </div>
+          <h3 class="value-title">Respect</h3>
+          <p>We treat everyone with dignity and respect, valuing diversity and inclusion in all aspects of our business.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Leadership Team -->
+  <section id="leadership" class="service-section bg-alt">
+    <div class="container">
+      <div class="section-header reveal-up">
+        <h2>Our Leadership Team</h2>
+        <p>Meet the experienced professionals who lead our company with expertise, integrity, and a commitment to excellence.</p>
+      </div>
+      
+      <div class="team-grid">
+        <div class="team-member reveal-up" data-delay="100">
+          <div class="team-photo">
+            <img src="https://placehold.co/400x400/1a365d/FFFFFF?text=JS" alt="John Smith">
+          </div>
+          <h3 class="team-name">John Smith</h3>
+          <p class="team-position">Chief Executive Officer</p>
+          <p class="team-bio">Former law enforcement officer with over 30 years of experience in security management and operations.</p>
+          <div class="team-social">
+            <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="#" aria-label="Twitter"><i class="fa-brands fa-twitter"></i></a>
+          </div>
+        </div>
+        
+        <div class="team-member reveal-up" data-delay="200">
+          <div class="team-photo">
+            <img src="https://placehold.co/400x400/1a365d/FFFFFF?text=SJ" alt="Sarah Johnson">
+          </div>
+          <h3 class="team-name">Sarah Johnson</h3>
+          <p class="team-position">Chief Operations Officer</p>
+          <p class="team-bio">Security industry veteran with expertise in operational excellence and client relationship management.</p>
+          <div class="team-social">
+            <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="#" aria-label="Twitter"><i class="fa-brands fa-twitter"></i></a>
+          </div>
+        </div>
+        
+        <div class="team-member reveal-up" data-delay="300">
+          <div class="team-photo">
+            <img src="https://placehold.co/400x400/1a365d/FFFFFF?text=MR" alt="Michael Rodriguez">
+          </div>
+          <h3 class="team-name">Michael Rodriguez</h3>
+          <p class="team-position">Director of Training</p>
+          <p class="team-bio">Former military officer specializing in security training, threat assessment, and emergency response.</p>
+          <div class="team-social">
+            <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="#" aria-label="Twitter"><i class="fa-brands fa-twitter"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content text-center reveal-up">
+        <h2>Ready to Work with the Best?</h2>
+        <p>Contact us today to discuss your security needs and discover why SecureGuard is the trusted choice for security services.</p>
+        <div class="cta-buttons centered">
+          <a href="contact.html" class="btn secondary-btn">Contact Us Today</a>
+          <a href="services.html" class="btn outline-light-btn">Explore Our Services</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-about">
+          <div class="footer-logo">
+            <i class="fa-solid fa-shield-halved"></i>
+            <span>SecureGuard</span>
+          </div>
+          <p>Professional security solutions for businesses, events, and properties of all sizes.</p>
+          <div class="social-links">
+            <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#" aria-label="Twitter"><i class="fa-brands fa-twitter"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+          </div>
+        </div>
+        <div class="footer-links">
+          <h3>Services</h3>
+          <ul>
+            <li><a href="services.html#armed-guards">Armed Guards</a></li>
+            <li><a href="services.html#unarmed-guards">Unarmed Guards</a></li>
+            <li><a href="services.html#access-control">Access Control</a></li>
+            <li><a href="services.html#patrol-services">Patrol Services</a></li>
+            <li><a href="services.html#event-security">Event Security</a></li>
+            <li><a href="services.html#executive-protection">Executive Protection</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h3>Company</h3>
+          <ul>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="about.html#leadership">Leadership</a></li>
+            <li><a href="about.html#careers">Careers</a></li>
+            <li><a href="about.html#news">News & Press</a></li>
+            <li><a href="about.html#testimonials">Testimonials</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h3>Resources</h3>
+          <ul>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="security-tips.html">Security Tips</a></li>
+            <li><a href="client-portal.html">Client Portal</a></li>
+            <li><a href="faqs.html">FAQs</a></li>
+            <li><a href="privacy-policy.html">Privacy Policy</a></li>
+            <li><a href="terms-of-service.html">Terms of Service</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; <span id="current-year">2023</span> SecureGuard Inc. All rights reserved. Licensed and Insured.</p>
+        <div class="footer-certifications">
+          <img src="https://placehold.co/40x40/1a365d/FFFFFF?text=Cert" alt="Security Certification">
+          <img src="https://placehold.co/40x40/1a365d/FFFFFF?text=Cert" alt="Security Certification">
+          <img src="https://placehold.co/40x40/1a365d/FFFFFF?text=Cert" alt="Security Certification">
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
