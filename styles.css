@@ -121,7 +121,7 @@ h6 {
 /* Container */
 .container {
   width: 100%;
-  max-width: 1200px;
+  max-width: 1600px;
   margin: 0 auto;
   padding: 0 var(--spacing-lg);
 }
@@ -940,6 +940,7 @@ h6 {
   }
 }
 
+
 @media (max-width: 768px) {
   html {
     font-size: 14px;
@@ -1189,6 +1190,26 @@ h6 {
     width: 150px; /* Use smaller team photos like mobile */
     height: 150px;
   }
+
+}
+
+@media (min-width: 1080px) and (max-width:1260px){
+
+  .logo a {
+    display: flex;
+    align-items: center;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--primary);
+  }
+
+  .main-nav ul li :first-child > a  {
+    /* display: flex;
+    gap: var(--spacing-xl); */
+
+    padding-left: 100px;
+}
 
 }
 
