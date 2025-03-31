@@ -383,7 +383,7 @@ h6 {
   /* background-image: url("https://placehold.co/1920x1080/1a365d/FFFFFF?text=Security+Professionals"); */
   background-image: url(./images/security-professionals-header-16.9.jpg);
   background-size: cover;
-  background-position: center;
+  background-position: unset;
   display: flex;
   align-items: center;
   margin-top: 80px;
